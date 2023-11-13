@@ -1,10 +1,8 @@
 function solution(s) {
     var answer = 0;
     return s/1; 
-  
 }
   
-// }
 
 // function solution(s) {
 //     var answer = 0;
@@ -12,7 +10,6 @@ function solution(s) {
 //     return answer;
 // }
 
-// parseInt()
 // function solution(s) {
 //     var answer = 0;
 //     answer = parseInt(s)
