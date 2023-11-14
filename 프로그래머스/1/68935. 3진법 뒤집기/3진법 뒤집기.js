@@ -16,3 +16,8 @@ function solution(n) {
 // 2. 3진법으로 변환된 숫자를 앞뒤로 뒤집기
 // 3. 뒤집힌 3진법 숫자를 다시 10진법으로 변환 
 // 4. 변환된 10진법 숫자를 반환
+
+// 천재의 풀이법 
+// const solution = (n) => {
+//     return parseInt([...n.toString(3)].reverse().join(""), 3);
+// }
