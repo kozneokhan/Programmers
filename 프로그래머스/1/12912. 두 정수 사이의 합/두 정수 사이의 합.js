@@ -21,3 +21,10 @@
 //   for (var i = Math.min(a, b); i <= Math.max(a, b); i++) s += i;
 //   return s;
 // }
+
+// function solution(a, b) {
+//     const minValue = Math.min(a, b);
+//     const maxValue = Math.max(a, b);
+    
+//     return (minValue + maxValue) * (maxValue - minValue + 1) / 2;
+// }
