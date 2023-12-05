@@ -21,3 +21,17 @@ function solution(arr) {
 
     return result.length > 0 ? result : [-1];
 }
+
+// function solution(arr) {
+//     if (arr.length <= 1) {
+//         return [-1];
+//     }
+
+//     // 배열에서 최솟값 찾기
+//     const min = Math.min(...arr);
+
+//     // 최솟값을 제외한 새로운 배열 생성
+//     const result = arr.filter(num => num !== min);
+
+//     return result.length > 0 ? result : [-1];
+// }
