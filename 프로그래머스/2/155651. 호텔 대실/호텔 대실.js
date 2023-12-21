@@ -1,22 +1,40 @@
-function solution(book_time) {
+function solution(예약시간) {
+  // 시작 시간 순으로 정렬
+  예약시간.sort();
 
-    // 객실 예약을 저장할 배열
-    const room = [];
+  // 종료 시간을 저장할 배열
+  const 객실목록 = [];
 
-    // 최소 객실 수
-    let Rooms = 0;
+  // 예약 시간을 하나씩 확인
+  for (const 시간대 of 예약시간) {
+    // 시작 시간 분리
+    const [시작_시, 시작_분] = 시간대[0].split(":").map(Number);
+    const 시작시간 = 시작_시 * 60 + 시작_분;
 
-    // 현재 예약 시간과 겹치는 객실을 찾음
-        const overRoom = room.find;
-
-        if (overRoom !== undefined) {
-            // 겹치는 객실이 있으면 해당 객실을 사용하고 업데이트 
-           room[room.indexOf(overRoom)] = end + 10;
-        } else {
-            // 겹치는 객실이 없으면 새로운 객실을 예약하고 최소 객실 수 증가
-            Rooms++;
-        }
+    // 종료 시간 찾기
+    let 객실_찾음 = false;
+    for (let i = 0; i < 객실목록.length; i++) {
+      if (객실목록[i] <= 시작시간) {
+        객실목록[i] = 다음이용가능시간(시간대[1]);
+        객실_찾음 = true;
+        break;
+      }
     }
 
-    return Rooms;
+    // 새로운 객실 필요한 경우 추가
+    if (!객실_찾음) {
+      객실목록.push(다음이용가능시간(시간대[1]));
+    }
+  }
+
+  // 필요한 최소 객실 수 반환
+  return 객실목록.length;
 }
+
+// 다음 이용 가능 시간 계산 함수
+function 다음이용가능시간(종료시간) {
+  const [종료_시, 종료_분] = 종료시간.split(":").map(Number);
+  return 종료_시 * 60 + 종료_분 + 10;
+}
+
+
